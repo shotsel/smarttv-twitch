@@ -219,7 +219,8 @@ function Play_PreStart() {
         avplay.setAttribute('type', 'application/avplayer');
         avplay.setAttribute('style', 'width:100%; height:100%; position: absolute;');
         document.getElementById('scene2').appendChild(avplay);
-        Play_avplay = webapis.avplay;
+        //AVPlay for TS streams, hls.js for fMP4 (Enhanced Broadcasting) streams, see PlayHls.js
+        Play_avplay = PlayHls_CreatePlayer(webapis.avplay);
         Play_TizenVersion = tizen.systeminfo.getCapability('http://tizen.org/feature/platform.version');
     }
 
